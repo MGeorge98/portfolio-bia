@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Interactive() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -76,7 +79,7 @@ export default function Interactive() {
       document.removeEventListener('click', anchorHandler);
       io?.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

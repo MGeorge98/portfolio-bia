@@ -40,8 +40,8 @@ export default function LedgerDashboard() {
             <svg viewBox="0 0 320 120" preserveAspectRatio="none" aria-hidden="true">
               <defs>
                 <linearGradient id="lg-area" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#F07E45" stopOpacity="0.22" />
-                  <stop offset="100%" stopColor="#F07E45" stopOpacity="0" />
+                  <stop offset="0%" stopColor="#F0647D" stopOpacity="0.22" />
+                  <stop offset="100%" stopColor="#F0647D" stopOpacity="0" />
                 </linearGradient>
               </defs>
               <path
@@ -50,13 +50,13 @@ export default function LedgerDashboard() {
               />
               <path
                 d="M0,90 C30,82 56,98 86,78 C116,58 144,72 178,52 C212,32 244,40 276,24 L320,12"
-                stroke="#F07E45"
+                stroke="#F0647D"
                 strokeWidth="1.5"
                 fill="none"
               />
               <line x1="0" y1="60" x2="320" y2="60" stroke="rgba(47,34,38,.08)" strokeDasharray="2 4" />
-              <circle cx="276" cy="24" r="4" fill="#F07E45" />
-              <circle cx="276" cy="24" r="9" fill="rgba(240,126,69,.18)" />
+              <circle cx="276" cy="24" r="4" fill="#F0647D" />
+              <circle cx="276" cy="24" r="9" fill="rgba(240,100,125,.18)" />
             </svg>
           </div>
         </div>

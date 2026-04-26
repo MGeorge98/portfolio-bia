@@ -8,7 +8,9 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <Hero />
+      <div className="curtain">
+        <Hero />
+      </div>
       <Work />
       <About />
       <Contact />

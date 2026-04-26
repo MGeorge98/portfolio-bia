@@ -7,6 +7,7 @@ import ProcessTabs, { type ProcessStep } from '@/components/case-study/ProcessTa
 import LedgerDashboard from '@/components/case-study/LedgerDashboard';
 import LedgerBeforeMock from '@/components/case-study/LedgerBeforeMock';
 import NextProject from '@/components/case-study/NextProject';
+import CaseStudyPreloader from '@/components/case-study/CaseStudyPreloader';
 import { projectBySlug, projects } from '@/data/projects';
 
 const PROJECT = projectBySlug('ledger')!;
@@ -106,10 +107,19 @@ export default function LedgerPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
+      <CaseStudyPreloader
+        number={PROJECT.number}
+        category={PROJECT.category}
+        year={PROJECT.year}
+        titleHtml={PROJECT.titleHtml}
+      />
       <Nav solid />
 
       {/* HERO */}
+      <div className="curtain">
       <header className="cs-hero cs-hero--ledger">
+        <div className="cs-hero__grain" aria-hidden="true" />
+        <div className="cs-hero__flicker" aria-hidden="true" />
         <div className="container">
           <div className="cs-hero__eyebrow">
             <a href="/" className="cs-hero__back">
@@ -174,7 +184,12 @@ export default function LedgerPage() {
             <a className="btn btn--outline" href="#outcomes">Skip to outcomes</a>
           </div>
         </div>
+        <div className="cs-hero__scroll" aria-hidden="true">
+          <span className="bar" />
+          Scroll
+        </div>
       </header>
+      </div>
 
       {/* SHOWCASE */}
       <section className="cs-showcase" aria-label="Live dashboard preview">
@@ -312,7 +327,7 @@ export default function LedgerPage() {
               </div>
             </div>
 
-            <Swatch name="Tangerine" hex="#F07E45" />
+            <Swatch name="Tangerine" hex="#F0647D" />
             <Swatch name="Sand" hex="#F3BA72" />
             <Swatch name="Rust" hex="#833930" />
             <Swatch name="Mauve" hex="#B56788" />
@@ -351,7 +366,7 @@ export default function LedgerPage() {
             <div className="tok tok--span6">
               <span className="k">Buttons</span>
               <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                <span style={{ background: 'var(--tangerine)', color: '#fff', padding: '8px 16px', borderRadius: 999, fontSize: 12, fontWeight: 500, fontFamily: 'var(--sans)' }}>
+                <span style={{ background: 'var(--coral)', color: '#fff', padding: '8px 16px', borderRadius: 999, fontSize: 12, fontWeight: 500, fontFamily: 'var(--sans)' }}>
                   Primary · forward →
                 </span>
                 <span style={{ background: 'transparent', color: 'var(--cream)', border: '1px solid rgba(247,241,230,.4)', padding: '8px 16px', borderRadius: 999, fontSize: 12, fontWeight: 500, fontFamily: 'var(--sans)' }}>
@@ -578,8 +593,8 @@ function ProcessVisualD() {
               width: 8,
               height: 8,
               borderRadius: 999,
-              background: it.flagged ? 'var(--tangerine)' : 'var(--slate)',
-              boxShadow: it.flagged ? '0 0 0 3px rgba(240,126,69,.18)' : 'none',
+              background: it.flagged ? 'var(--coral)' : 'var(--slate)',
+              boxShadow: it.flagged ? '0 0 0 3px rgba(240,100,125,.18)' : 'none',
             }}
           />
           <span style={{ fontSize: 13, color: 'var(--ink)' }}>{it.name}</span>
@@ -622,7 +637,7 @@ function ProcessVisualE() {
         <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.22em', color: 'var(--ink-faint)', textTransform: 'uppercase' }}>Cash on hand</span>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginTop: 6 }}>
           <span style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 300, color: 'var(--ink)', letterSpacing: '-.02em' }}>
-            $<em style={{ color: 'var(--tangerine)', fontStyle: 'italic' }}>42.8</em>M
+            $<em style={{ color: 'var(--coral)', fontStyle: 'italic' }}>42.8</em>M
           </span>
           <span style={{ fontFamily: 'var(--mono)', fontSize: 11, color: '#2F7A4F', letterSpacing: '.04em' }}>
             ▲ +$1.32M
@@ -630,8 +645,8 @@ function ProcessVisualE() {
         </div>
         <svg viewBox="0 0 200 28" style={{ width: '100%', marginTop: 10 }}>
           <line x1="0" y1="14" x2="200" y2="14" stroke="rgba(47,34,38,.1)" />
-          <path d="M0,18 C30,18 60,14 90,12 C120,10 150,6 200,4" stroke="#F07E45" strokeWidth="1.5" fill="none" />
-          <circle cx="200" cy="4" r="2.5" fill="#F07E45" />
+          <path d="M0,18 C30,18 60,14 90,12 C120,10 150,6 200,4" stroke="#F0647D" strokeWidth="1.5" fill="none" />
+          <circle cx="200" cy="4" r="2.5" fill="#F0647D" />
         </svg>
       </div>
       <span style={{ fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '.18em', color: 'var(--ink-soft)' }}>

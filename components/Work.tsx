@@ -56,11 +56,11 @@ const LedgerVisual = () => (
               <svg viewBox="0 0 200 60" preserveAspectRatio="none">
                 <path
                   d="M0,48 C20,42 38,50 58,40 C78,30 96,36 118,24 C138,13 158,18 180,10 L200,6 L200,60 L0,60 Z"
-                  fill="rgba(240,126,69,.18)"
+                  fill="rgba(240,100,125,.18)"
                 />
                 <path
                   d="M0,48 C20,42 38,50 58,40 C78,30 96,36 118,24 C138,13 158,18 180,10 L200,6"
-                  stroke="#F07E45"
+                  stroke="#F0647D"
                   strokeWidth="1.3"
                   fill="none"
                 />
@@ -72,7 +72,7 @@ const LedgerVisual = () => (
                 <span>+1.2M</span>
               </div>
               <div className="mock__row-item">
-                <span className="tangerine">Payroll · EU</span>
+                <span className="coral">Payroll · EU</span>
                 <span>−480k</span>
               </div>
               <div className="mock__row-item">
@@ -162,8 +162,8 @@ const HalcyonVisual = () => (
       </div>
       <div className="sys-cell">
         <span className="sys-lbl">Tangerine</span>
-        <div className="sys-swatch" style={{ background: '#F07E45' }} />
-        <span className="sys-lbl">#F07E45</span>
+        <div className="sys-swatch" style={{ background: '#F0647D' }} />
+        <span className="sys-lbl">#F0647D</span>
       </div>
       <div className="sys-cell">
         <span className="sys-lbl">Sand</span>
@@ -204,7 +204,7 @@ const HalcyonVisual = () => (
         <span className="sys-lbl">Button · Primary</span>
         <div
           style={{
-            background: 'var(--tangerine)',
+            background: 'var(--coral)',
             color: '#fff',
             padding: '6px 10px',
             borderRadius: 999,
