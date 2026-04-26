@@ -28,10 +28,7 @@ export default function Nav({ solid = false, homeHref = '/' }: Props) {
           Contact
         </Link>
       </div>
-      <Link className="nav__cta" href={contact}>
-        <span className="pulse" aria-hidden="true" />
-        <span className="t">Available — Q3</span>
-      </Link>
+
     </nav>
   );
 }

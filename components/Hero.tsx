@@ -1,4 +1,6 @@
-import Rotator from './Rotator';
+"use client";
+
+import { motion } from 'framer-motion';
 
 const ArrowOut = () => (
   <svg className="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -11,6 +13,35 @@ const ArrowOut = () => (
     />
   </svg>
 );
+
+const spring = { type: 'spring', stiffness: 100, damping: 20 } as const;
+
+function word(i: number) {
+  return {
+    hidden: { opacity: 0, y: 16, filter: 'blur(6px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { ...spring, delay: 0.15 + i * 0.065 },
+    },
+  };
+}
+
+const taglineVariant = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { ...spring, delay: 0.72 } },
+};
+
+const ctasVariant = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { ...spring, delay: 0.9 } },
+};
+
+
+// Line 1: I make experiences people
+// Line 2: actually <em>enjoy</em>.
+const LINE1 = ['I', 'make', 'experiences', 'people'];
 
 export default function Hero() {
   return (
@@ -26,68 +57,78 @@ export default function Hero() {
       >
         <source src="/assets/hero-bg.mp4" type="video/mp4" />
       </video>
+
       <div className="hero__tint" aria-hidden="true" />
+      <div className="hero__overlay" aria-hidden="true" />
       <div className="hero__scan" aria-hidden="true" />
       <div className="hero__vignette" aria-hidden="true" />
       <div className="hero__grain" aria-hidden="true" />
       <div className="hero__flicker" aria-hidden="true" />
 
-      <div className="hero__inner container">
-        <div className="hero__eyebrow reveal" data-delay="0">
-          <span className="tick" aria-hidden="true" />
-          Portfolio — Vol. 04 · 2022–2026
-        </div>
+      <div className="hero__block">
+        <h1
+          className="hero__headline"
+          aria-label="I make experiences people actually enjoy."
+        >
+          <span className="hero__line">
+            {LINE1.map((w, i) => (
+              <motion.span
+                key={w}
+                className="hero__word"
+                variants={word(i)}
+                initial="hidden"
+                animate="visible"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </span>
 
-        <div>
-          <h1 className="hero__headline" aria-label="Hi! I am Bia">
-            <span className="line">
-              <span>Hi!</span>
+          <span className="hero__line">
+            <motion.span
+              className="hero__word"
+              variants={word(LINE1.length)}
+              initial="hidden"
+              animate="visible"
+            >
+              actually
+            </motion.span>
+            <span className="hero__highlight">
+              <motion.span
+                className="hero__word"
+                variants={word(LINE1.length + 1)}
+                initial="hidden"
+                animate="visible"
+              >
+                enjoy
+              </motion.span>
             </span>
-            <span className="line">
-              <span>
-                I am <em>Bia.</em>
-              </span>
-            </span>
-          </h1>
+          </span>
+        </h1>
 
-          <p className="hero__rotator reveal" data-delay="420" aria-live="polite">
-            <span className="pre">I am a</span>
-            <Rotator />
-          </p>
-        </div>
+        <motion.p
+          className="hero__tagline"
+          variants={taglineVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          Sometimes with AI. Always with other humans.
+        </motion.p>
 
-        <div className="hero__meta">
-          <p className="hero__sub reveal" data-delay="480">
-            <strong>Bia Marques</strong> — product designer crafting calm, carefully considered
-            interfaces for teams that take craft seriously. Currently focused on financial tooling,
-            design systems, and the slow art of making software feel inevitable.
-          </p>
-          <div className="hero__info reveal" data-delay="540">
-            <span className="lbl">Based</span>
-            <span className="val">Lisbon → remote</span>
-            <span className="lbl" style={{ marginTop: 10 }}>
-              Status
-            </span>
-            <span className="val avail">Taking select projects — Q3</span>
-          </div>
-          <div className="hero__ctas reveal" data-delay="600">
-            <a href="#work" className="btn btn--primary">
-              View my work
-              <ArrowOut />
-            </a>
-            <a href="#contact" className="btn btn--ghost">
-              Get in touch
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="hero__scroll" aria-hidden="true">
-        <span className="bar" />
-        Scroll
-      </div>
-      <div className="hero__credit" aria-hidden="true">
-        IDX · 001 / 004
+        <motion.div
+          className="hero__ctas"
+          variants={ctasVariant}
+          initial="hidden"
+          animate="visible"
+        >
+          <a href="#work" className="btn btn--primary">
+            View my work
+            <ArrowOut />
+          </a>
+          <a href="#contact" className="btn btn--ghost">
+            Get in touch
+          </a>
+        </motion.div>
       </div>
     </section>
   );

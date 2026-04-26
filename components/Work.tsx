@@ -285,17 +285,10 @@ export default function Work() {
     <section className="work" id="work" data-screen-label="02 Work">
       <div className="container">
         <header className="sec-head">
-          <div className="sec-head__num">§ 01 — Selected Work</div>
           <h2 className="sec-head__title reveal">
             Four projects, chosen for the <em>thinking</em> behind them.
           </h2>
-          <div className="sec-head__aside">2022 — 2026 / 14 shipped</div>
         </header>
-
-        <div className="work__intro">
-          <span>Case studies · press any project to read</span>
-          <span>↓ Scroll</span>
-        </div>
 
         <div className="projects">
           {projects.map((p, i) => {

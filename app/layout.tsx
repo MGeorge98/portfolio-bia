@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, JetBrains_Mono } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 import Interactive from '@/components/Interactive';
 import './globals.css';
 
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en" className={`${fraunces.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${jetbrains.variable} ${GeistSans.variable}`}>
       <head>
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="" />
